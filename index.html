@@ -60,23 +60,23 @@
 <body class="text-gray-700 antialiased">
 
     <!-- Header Banner -->
-    <div class="w-full bg-gray-900 shadow-lg relative overflow-hidden h-64 md:h-80">
-        <!-- Placeholder Image: แนะนำให้เปลี่ยน src เป็นรูป Carrier X Inverter Plus ของจริง -->
-        <img src="https://www.carrierthailand.com/wp-content/uploads/2024/01/Cover-Facebook-01-scaled.jpg" 
+    <div class="w-full bg-gray-900 shadow-lg relative overflow-hidden h-64 md:h-96">
+        <!-- Changed Image Source here -->
+        <img src="Product-banner-2-2048x853.png" 
              alt="Carrier X Inverter Plus Banner" 
-             class="w-full h-full object-cover opacity-90 hover:scale-105 transition-transform duration-700">
-        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+             class="w-full h-full object-cover object-center opacity-95 hover:scale-105 transition-transform duration-700">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
         <div class="absolute bottom-0 left-0 w-full p-6 md:p-10 text-white">
             <div class="max-w-3xl mx-auto">
-                <span class="bg-carrier-blue text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2 inline-block">Survey 2025</span>
-                <h1 class="text-3xl md:text-4xl font-bold leading-tight drop-shadow-md">แบบสอบถามอบรมสินค้าใหม่</h1>
-                <p class="text-gray-200 mt-2 text-sm md:text-base">ร่วมแสดงความคิดเห็นเพื่อพัฒนาสินค้าและบริการของแอร์แคเรียร์</p>
+                <span class="bg-carrier-blue text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2 inline-block shadow-sm">Survey 2025</span>
+                <h1 class="text-3xl md:text-5xl font-bold leading-tight drop-shadow-lg text-white">แบบสอบถามอบรมสินค้าใหม่</h1>
+                <p class="text-gray-200 mt-2 text-sm md:text-lg font-light drop-shadow-md">ร่วมแสดงความคิดเห็นเพื่อพัฒนาสินค้าและบริการของแอร์แคเรียร์</p>
             </div>
         </div>
     </div>
 
     <!-- Main Container -->
-    <div class="max-w-3xl mx-auto px-4 pb-20 -mt-8 relative z-10">
+    <div class="max-w-3xl mx-auto px-4 pb-20 -mt-10 relative z-10">
 
         <form id="carrierForm" class="space-y-6">
             
@@ -317,7 +317,7 @@
 
     <script>
         // *** ใส่ URL ของ Google Apps Script Web App ของคุณที่นี่ ***
-        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyMUwn3_E30AZcggf1dtcs9LnXTY6fdKOGr3UapnZsPTUVXDmtwM2fCOFLKcghtSlgN/exec'; 
+        const SCRIPT_URL = 'YOUR_GOOGLE_SCRIPT_URL_HERE'; 
 
         const form = document.getElementById('carrierForm');
         const submitBtn = document.getElementById('submitBtn');
