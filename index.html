@@ -26,8 +26,26 @@
     </script>
     <style>
         body {
-            background-color: #f0f2f5;
+            /* ใส่รูปพื้นหลังตามที่ขอ */
+            background-image: url('https://img5.pic.in.th/file/secure-sv1/LINE_ALBUM_-_260106_1.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
         }
+        /* เพิ่ม Overlay สีขาวจางๆ เพื่อให้อ่านตัวหนังสือได้ชัดเจนบนรูปพื้นหลัง */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(240, 242, 245, 0.85); /* สีขาวโปร่งแสง */
+            z-index: -1;
+            backdrop-filter: blur(2px);
+        }
+
         /* Custom Radio Button Styling */
         .radio-card:checked + div {
             border-color: #0055A4;
@@ -61,14 +79,14 @@
 
     <!-- Header Banner -->
     <div class="w-full bg-gray-900 shadow-lg relative overflow-hidden h-64 md:h-96">
-        <!-- Changed Image Source here -->
+        <!-- Banner Image -->
         <img src="Product-banner-2-2048x853.png" 
              alt="Carrier X Inverter Plus Banner" 
              class="w-full h-full object-cover object-center opacity-95 hover:scale-105 transition-transform duration-700">
         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
         <div class="absolute bottom-0 left-0 w-full p-6 md:p-10 text-white">
             <div class="max-w-3xl mx-auto">
-                <span class="bg-carrier-blue text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2 inline-block shadow-sm">Survey 2025</span>
+                <span class="bg-carrier-blue text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2 inline-block shadow-sm">Survey 2026</span>
                 <h1 class="text-3xl md:text-5xl font-bold leading-tight drop-shadow-lg text-white">แบบสอบถามอบรมสินค้าใหม่</h1>
                 <p class="text-gray-200 mt-2 text-sm md:text-lg font-light drop-shadow-md">ร่วมแสดงความคิดเห็นเพื่อพัฒนาสินค้าและบริการของแอร์แคเรียร์</p>
             </div>
@@ -81,7 +99,7 @@
         <form id="carrierForm" class="space-y-6">
             
             <!-- Section 1: ข้อมูลทั่วไป -->
-            <div class="bg-white rounded-xl shadow-md p-6 md:p-8 border border-gray-100">
+            <div class="bg-white/95 backdrop-blur-sm rounded-xl shadow-md p-6 md:p-8 border border-gray-100">
                 <h2 class="text-xl font-semibold text-carrier-blue mb-6 flex items-center">
                     <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
                     ข้อมูลผู้ตอบแบบสอบถาม
@@ -96,21 +114,89 @@
                         <label class="block text-sm font-medium mb-2 text-gray-900">2. เบอร์โทรศัพท์ติดต่อ <span class="text-gray-400 font-normal">(ถ้าสะดวกให้ข้อมูล)</span></label>
                         <input type="tel" name="phone" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 focus:bg-white focus:border-carrier-blue focus:ring-2 focus:ring-blue-100 outline-none transition-all placeholder-gray-400" placeholder="0xx-xxx-xxxx">
                     </div>
+                    
+                    <!-- New Question: Dropdown List -->
+                    <div>
+                        <label class="block text-sm font-medium mb-2 text-gray-900">3. เลือกวันที่และสถานที่อบรม <span class="text-red-500">*</span></label>
+                        <div class="relative">
+                            <select name="training_date" required class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 pr-8 focus:bg-white focus:border-carrier-blue focus:ring-2 focus:ring-blue-100 outline-none transition-all appearance-none text-gray-700">
+                                <option value="" disabled selected>กรุณาเลือกวันและสถานที่</option>
+                                <optgroup label="มกราคม 2026">
+                                    <option value="19 ม.ค. 69 - กรุงเทพฯ">วันจันทร์ที่ 19 มกราคม 2026 - กรุงเทพมหานคร</option>
+                                    <option value="20 ม.ค. 69 - เชียงราย">วันอังคารที่ 20 มกราคม 2026 - เชียงราย</option>
+                                    <option value="20 ม.ค. 69 - กรุงเทพฯ">วันอังคารที่ 20 มกราคม 2026 - กรุงเทพมหานคร</option>
+                                    <option value="21 ม.ค. 69 - กรุงเทพฯ">วันพุธที่ 21 มกราคม 2026 - กรุงเทพมหานคร</option>
+                                    <option value="22 ม.ค. 69 - เชียงใหม่">วันพฤหัสบดีที่ 22 มกราคม 2026 - เชียงใหม่</option>
+                                    <option value="22 ม.ค. 69 - กรุงเทพฯ">วันพฤหัสบดีที่ 22 มกราคม 2026 - กรุงเทพมหานคร</option>
+                                    <option value="23 ม.ค. 69 - กรุงเทพฯ">วันศุกร์ที่ 23 มกราคม 2026 - กรุงเทพมหานคร</option>
+                                    <option value="27 ม.ค. 69 - พิษณุโลก">วันอังคารที่ 27 มกราคม 2026 - พิษณุโลก</option>
+                                    <option value="27 ม.ค. 69 - กรุงเทพฯ">วันอังคารที่ 27 มกราคม 2026 - กรุงเทพมหานคร</option>
+                                    <option value="28 ม.ค. 69 - พิจิตร">วันพุธที่ 28 มกราคม 2026 - พิจิตร</option>
+                                    <option value="28 ม.ค. 69 - กรุงเทพฯ">วันพุธที่ 28 มกราคม 2026 - กรุงเทพมหานคร</option>
+                                    <option value="29 ม.ค. 69 - นครสวรรค์">วันพฤหัสบดีที่ 29 มกราคม 2026 - นครสวรรค์</option>
+                                    <option value="29 ม.ค. 69 - กรุงเทพฯ">วันพฤหัสบดีที่ 29 มกราคม 2026 - กรุงเทพมหานคร</option>
+                                </optgroup>
+                                <optgroup label="กุมภาพันธ์ 2026">
+                                    <option value="3 ก.พ. 69 - นครราชสีมา">วันอังคารที่ 3 กุมภาพันธ์ 2026 - นครราชสีมา</option>
+                                    <option value="3 ก.พ. 69 - กรุงเทพฯ">วันอังคารที่ 3 กุมภาพันธ์ 2026 - กรุงเทพมหานคร</option>
+                                    <option value="4 ก.พ. 69 - กรุงเทพฯ">วันพุธที่ 4 กุมภาพันธ์ 2026 - กรุงเทพมหานคร</option>
+                                    <option value="5 ก.พ. 69 - อุดรธานี">วันพฤหัสบดีที่ 5 กุมภาพันธ์ 2026 - อุดรธานี</option>
+                                    <option value="5 ก.พ. 69 - กรุงเทพฯ">วันพฤหัสบดีที่ 5 กุมภาพันธ์ 2026 - กรุงเทพมหานคร</option>
+                                    <option value="6 ก.พ. 69 - ขอนแก่น">วันศุกร์ที่ 6 กุมภาพันธ์ 2026 - ขอนแก่น</option>
+                                    <option value="6 ก.พ. 69 - กรุงเทพฯ">วันศุกร์ที่ 6 กุมภาพันธ์ 2026 - กรุงเทพมหานคร</option>
+                                    <option value="9 ก.พ. 69 - ระยอง">วันจันทร์ที่ 9 กุมภาพันธ์ 2026 - ระยอง</option>
+                                    <option value="10 ก.พ. 69 - ชลบุรี">วันอังคารที่ 10 กุมภาพันธ์ 2026 - ชลบุรี</option>
+                                    <option value="10 ก.พ. 69 - กรุงเทพฯ">วันอังคารที่ 10 กุมภาพันธ์ 2026 - กรุงเทพมหานคร</option>
+                                    <option value="11 ก.พ. 69 - กรุงเทพฯ">วันพุธที่ 11 กุมภาพันธ์ 2026 - กรุงเทพมหานคร</option>
+                                    <option value="12 ก.พ. 69 - กรุงเทพฯ">วันพฤหัสบดีที่ 12 กุมภาพันธ์ 2026 - กรุงเทพมหานคร</option>
+                                    <option value="13 ก.พ. 69 - กรุงเทพฯ">วันศุกร์ที่ 13 กุมภาพันธ์ 2026 - กรุงเทพมหานคร</option>
+                                    <option value="17 ก.พ. 69 - อุบลราชธานี">วันอังคารที่ 17 กุมภาพันธ์ 2026 - อุบลราชธานี</option>
+                                    <option value="17 ก.พ. 69 - กรุงเทพฯ">วันอังคารที่ 17 กุมภาพันธ์ 2026 - กรุงเทพมหานคร</option>
+                                    <option value="18 ก.พ. 69 - กรุงเทพฯ">วันพุธที่ 18 กุมภาพันธ์ 2026 - กรุงเทพมหานคร</option>
+                                    <option value="19 ก.พ. 69 - บุรีรัมย์">วันพฤหัสบดีที่ 19 กุมภาพันธ์ 2026 - บุรีรัมย์</option>
+                                    <option value="19 ก.พ. 69 - กรุงเทพฯ">วันพฤหัสบดีที่ 19 กุมภาพันธ์ 2026 - กรุงเทพมหานคร</option>
+                                    <option value="20 ก.พ. 69 - กรุงเทพฯ">วันศุกร์ที่ 20 กุมภาพันธ์ 2026 - กรุงเทพมหานคร</option>
+                                    <option value="24 ก.พ. 69 - สงขลา">วันอังคารที่ 24 กุมภาพันธ์ 2026 - สงขลา</option>
+                                    <option value="24 ก.พ. 69 - กรุงเทพฯ">วันอังคารที่ 24 กุมภาพันธ์ 2026 - กรุงเทพมหานคร</option>
+                                    <option value="25 ก.พ. 69 - กรุงเทพฯ">วันพุธที่ 25 กุมภาพันธ์ 2026 - กรุงเทพมหานคร</option>
+                                    <option value="26 ก.พ. 69 - นครศรีธรรมราช">วันพฤหัสบดีที่ 26 กุมภาพันธ์ 2026 - นครศรีธรรมราช</option>
+                                    <option value="26 ก.พ. 69 - กรุงเทพฯ">วันพฤหัสบดีที่ 26 กุมภาพันธ์ 2026 - กรุงเทพมหานคร</option>
+                                    <option value="27 ก.พ. 69 - กรุงเทพฯ">วันศุกร์ที่ 27 กุมภาพันธ์ 2026 - กรุงเทพมหานคร</option>
+                                </optgroup>
+                                <optgroup label="มีนาคม 2026">
+                                    <option value="4 มี.ค. 69 - กรุงเทพฯ">วันพุธที่ 4 มีนาคม 2026 - กรุงเทพมหานคร</option>
+                                    <option value="5 มี.ค. 69 - สุราษฎร์ธานี">วันพฤหัสบดีที่ 5 มีนาคม 2026 - สุราษฎร์ธานี</option>
+                                    <option value="5 มี.ค. 69 - กรุงเทพฯ">วันพฤหัสบดีที่ 5 มีนาคม 2026 - กรุงเทพมหานคร</option>
+                                    <option value="6 มี.ค. 69 - สุราษฎร์ธานี">วันศุกร์ที่ 6 มีนาคม 2026 - สุราษฎร์ธานี</option>
+                                    <option value="6 มี.ค. 69 - กรุงเทพฯ">วันศุกร์ที่ 6 มีนาคม 2026 - กรุงเทพมหานคร</option>
+                                    <option value="10 มี.ค. 69 - ภูเก็ต">วันอังคารที่ 10 มีนาคม 2026 - ภูเก็ต</option>
+                                    <option value="10 มี.ค. 69 - กรุงเทพฯ">วันอังคารที่ 10 มีนาคม 2026 - กรุงเทพมหานคร</option>
+                                    <option value="11 มี.ค. 69 - กรุงเทพฯ">วันพุธที่ 11 มีนาคม 2026 - กรุงเทพมหานคร</option>
+                                    <option value="12 มี.ค. 69 - กรุงเทพฯ">วันพฤหัสบดีที่ 12 มีนาคม 2026 - กรุงเทพมหานคร</option>
+                                    <option value="13 มี.ค. 69 - กรุงเทพฯ">วันศุกร์ที่ 13 มีนาคม 2026 - กรุงเทพมหานคร</option>
+                                    <option value="18 มี.ค. 69 - กรุงเทพฯ">วันพุธที่ 18 มีนาคม 2026 - กรุงเทพมหานคร</option>
+                                    <option value="19 มี.ค. 69 - กรุงเทพฯ">วันพฤหัสบดีที่ 19 มีนาคม 2026 - กรุงเทพมหานคร</option>
+                                </optgroup>
+                            </select>
+                            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-gray-600">
+                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <!-- Section 2: ข้อมูลการขาย -->
-            <div class="bg-white rounded-xl shadow-md p-6 md:p-8 border border-gray-100">
+            <div class="bg-white/95 backdrop-blur-sm rounded-xl shadow-md p-6 md:p-8 border border-gray-100">
                 <h2 class="text-xl font-semibold text-carrier-blue mb-6 flex items-center">
                     <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
                     ข้อมูลการขายและผลิตภัณฑ์
                 </h2>
 
-                <!-- Question 3 -->
+                <!-- Question 4 -->
                 <div class="mb-8">
-                    <label class="block text-base font-medium mb-4 text-gray-900">3. ท่านแนะนำแอร์ให้ลูกค้าด้วยเหตุผลใดเป็นหลัก <span class="text-red-500">*</span></label>
+                    <label class="block text-base font-medium mb-4 text-gray-900">4. ท่านแนะนำแอร์ให้ลูกค้าด้วยเหตุผลใดเป็นหลัก <span class="text-red-500">*</span></label>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                        <!-- Option Item -->
                         <label class="cursor-pointer group">
                             <input type="radio" name="reason" value="ราคาถูกที่สุด" required class="radio-card hidden">
                             <div class="border border-gray-200 rounded-lg p-4 flex items-center group-hover:border-carrier-blue/50 transition-all">
@@ -118,7 +204,6 @@
                                 <span class="text-sm">ราคาถูกที่สุด</span>
                             </div>
                         </label>
-                        <!-- Option Item -->
                         <label class="cursor-pointer group">
                             <input type="radio" name="reason" value="ประหยัดไฟที่สุด" class="radio-card hidden">
                             <div class="border border-gray-200 rounded-lg p-4 flex items-center group-hover:border-carrier-blue/50 transition-all">
@@ -126,7 +211,6 @@
                                 <span class="text-sm">ประหยัดไฟที่สุด</span>
                             </div>
                         </label>
-                        <!-- Option Item -->
                         <label class="cursor-pointer group">
                             <input type="radio" name="reason" value="รับประกันนานที่สุด" class="radio-card hidden">
                             <div class="border border-gray-200 rounded-lg p-4 flex items-center group-hover:border-carrier-blue/50 transition-all">
@@ -134,7 +218,6 @@
                                 <span class="text-sm">รับประกันนานที่สุด</span>
                             </div>
                         </label>
-                        <!-- Option Item -->
                         <label class="cursor-pointer group">
                             <input type="radio" name="reason" value="มีอายุการใช้งานนานที่สุด(พังยาก)" class="radio-card hidden">
                             <div class="border border-gray-200 rounded-lg p-4 flex items-center group-hover:border-carrier-blue/50 transition-all">
@@ -142,7 +225,6 @@
                                 <span class="text-sm">ทนทาน ใช้งานนาน (พังยาก)</span>
                             </div>
                         </label>
-                        <!-- Option Item -->
                         <label class="cursor-pointer group md:col-span-2">
                             <input type="radio" name="reason" value="ตามโปรโมชันบริษัทฯ ที่มี" class="radio-card hidden">
                             <div class="border border-gray-200 rounded-lg p-4 flex items-center group-hover:border-carrier-blue/50 transition-all">
@@ -153,9 +235,9 @@
                     </div>
                 </div>
 
-                <!-- Question 4: Scale -->
+                <!-- Question 5: Scale -->
                 <div class="mb-8">
-                    <label class="block text-base font-medium mb-4 text-gray-900">4. การเชียร์ขายของท่าน มีผลต่อการตัดสินใจลูกค้าเพียงใด <span class="text-red-500">*</span></label>
+                    <label class="block text-base font-medium mb-4 text-gray-900">5. การเชียร์ขายของท่าน มีผลต่อการตัดสินใจลูกค้าเพียงใด <span class="text-red-500">*</span></label>
                     <div class="bg-gray-50 rounded-xl p-6 flex flex-col items-center justify-center">
                         <div class="flex justify-between w-full max-w-sm mb-2 text-xs text-gray-500 font-medium uppercase tracking-wide">
                             <span>น้อยที่สุด</span>
@@ -186,9 +268,9 @@
                     </div>
                 </div>
 
-                <!-- Question 5 -->
+                <!-- Question 6 -->
                 <div class="mb-8">
-                    <label class="block text-base font-medium mb-4 text-gray-900">5. ท่านขายสินค้าระบบใดมากที่สุดในปี 2567 <span class="text-red-500">*</span></label>
+                    <label class="block text-base font-medium mb-4 text-gray-900">6. ท่านขายสินค้าระบบใดมากที่สุดในปี 2567 <span class="text-red-500">*</span></label>
                     <div class="grid grid-cols-2 gap-4">
                         <label class="cursor-pointer group">
                             <input type="radio" name="system_sold" value="Fixed-Speed" required class="radio-card hidden">
@@ -207,36 +289,71 @@
                     </div>
                 </div>
 
-                <!-- Question 6 -->
+                <!-- Question 7: Updated Model List -->
                 <div class="mb-6">
-                    <label class="block text-base font-medium mb-4 text-gray-900">6. แอร์ติดผนังรุ่นใดที่ท่านขายมากที่สุดปี 2567 <span class="text-red-500">*</span></label>
+                    <label class="block text-base font-medium mb-4 text-gray-900">7. แอร์ติดผนังรุ่นใดที่ท่านขายมากที่สุดปี 2567 <span class="text-red-500">*</span></label>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         <label class="cursor-pointer group">
-                            <input type="radio" name="model_sold" value="Copper7" required class="radio-card hidden">
+                            <input type="radio" name="model_sold" value="Copper 8" required class="radio-card hidden">
+                            <div class="border border-gray-200 rounded-lg p-4 flex items-center hover:border-carrier-blue/50 transition-all">
+                                <div class="radio-circle w-5 h-5 rounded-full border-2 border-gray-300 mr-3 flex-shrink-0"></div>
+                                <span>Copper 8</span>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer group">
+                            <input type="radio" name="model_sold" value="Copper 7" class="radio-card hidden">
                             <div class="border border-gray-200 rounded-lg p-4 flex items-center hover:border-carrier-blue/50 transition-all">
                                 <div class="radio-circle w-5 h-5 rounded-full border-2 border-gray-300 mr-3 flex-shrink-0"></div>
                                 <span>Copper 7</span>
                             </div>
                         </label>
                         <label class="cursor-pointer group">
-                            <input type="radio" name="model_sold" value="Copper10" class="radio-card hidden">
+                            <input type="radio" name="model_sold" value="Copper 10" class="radio-card hidden">
                             <div class="border border-gray-200 rounded-lg p-4 flex items-center hover:border-carrier-blue/50 transition-all">
                                 <div class="radio-circle w-5 h-5 rounded-full border-2 border-gray-300 mr-3 flex-shrink-0"></div>
                                 <span>Copper 10</span>
                             </div>
                         </label>
                         <label class="cursor-pointer group">
-                            <input type="radio" name="model_sold" value="Copper11" class="radio-card hidden">
+                            <input type="radio" name="model_sold" value="Copper 11" class="radio-card hidden">
                             <div class="border border-gray-200 rounded-lg p-4 flex items-center hover:border-carrier-blue/50 transition-all">
                                 <div class="radio-circle w-5 h-5 rounded-full border-2 border-gray-300 mr-3 flex-shrink-0"></div>
                                 <span>Copper 11</span>
                             </div>
                         </label>
                         <label class="cursor-pointer group">
-                            <input type="radio" name="model_sold" value="X-Inverter Plus" class="radio-card hidden">
+                            <input type="radio" name="model_sold" value="X-inverter Plus" class="radio-card hidden">
                             <div class="border border-gray-200 rounded-lg p-4 flex items-center hover:border-carrier-blue/50 transition-all bg-gray-50/50">
                                 <div class="radio-circle w-5 h-5 rounded-full border-2 border-gray-300 mr-3 flex-shrink-0"></div>
-                                <span class="text-carrier-blue font-semibold">X-Inverter Plus</span>
+                                <span class="text-carrier-blue font-semibold">X-inverter Plus</span>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer group">
+                            <input type="radio" name="model_sold" value="Color Smart" class="radio-card hidden">
+                            <div class="border border-gray-200 rounded-lg p-4 flex items-center hover:border-carrier-blue/50 transition-all">
+                                <div class="radio-circle w-5 h-5 rounded-full border-2 border-gray-300 mr-3 flex-shrink-0"></div>
+                                <span>Color Smart</span>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer group">
+                            <input type="radio" name="model_sold" value="Discovery" class="radio-card hidden">
+                            <div class="border border-gray-200 rounded-lg p-4 flex items-center hover:border-carrier-blue/50 transition-all">
+                                <div class="radio-circle w-5 h-5 rounded-full border-2 border-gray-300 mr-3 flex-shrink-0"></div>
+                                <span>Discovery</span>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer group">
+                            <input type="radio" name="model_sold" value="X-Power Element" class="radio-card hidden">
+                            <div class="border border-gray-200 rounded-lg p-4 flex items-center hover:border-carrier-blue/50 transition-all">
+                                <div class="radio-circle w-5 h-5 rounded-full border-2 border-gray-300 mr-3 flex-shrink-0"></div>
+                                <span>X-Power Element</span>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer group sm:col-span-2">
+                            <input type="radio" name="model_sold" value="X-Power Elite" class="radio-card hidden">
+                            <div class="border border-gray-200 rounded-lg p-4 flex items-center hover:border-carrier-blue/50 transition-all">
+                                <div class="radio-circle w-5 h-5 rounded-full border-2 border-gray-300 mr-3 flex-shrink-0"></div>
+                                <span>X-Power Elite</span>
                             </div>
                         </label>
                     </div>
@@ -244,7 +361,7 @@
             </div>
 
             <!-- Section 3: ข้อเสนอแนะ -->
-            <div class="bg-white rounded-xl shadow-md p-6 md:p-8 border border-gray-100">
+            <div class="bg-white/95 backdrop-blur-sm rounded-xl shadow-md p-6 md:p-8 border border-gray-100">
                 <h2 class="text-xl font-semibold text-carrier-blue mb-6 flex items-center">
                     <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path></svg>
                     ข้อเสนอแนะเพิ่มเติม
@@ -252,18 +369,18 @@
 
                 <div class="grid grid-cols-1 gap-6">
                     <div>
-                        <label class="block text-sm font-medium mb-2 text-gray-900">7. อยากให้แคเรียร์มีกิจกรรมใดเพื่อส่งเสริมการขาย <span class="text-red-500">*</span></label>
+                        <label class="block text-sm font-medium mb-2 text-gray-900">8. อยากให้แคเรียร์มีกิจกรรมใดเพื่อส่งเสริมการขาย <span class="text-red-500">*</span></label>
                         <input type="text" name="activity" required class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 focus:bg-white focus:border-carrier-blue focus:ring-2 focus:ring-blue-100 outline-none transition-all placeholder-gray-400" placeholder="เช่น โปรโมชั่น, ทริปท่องเที่ยว">
                     </div>
 
                     <div>
-                        <label class="block text-sm font-medium mb-2 text-gray-900">8. บอกสเปคแอร์ติดผนังในฝันที่คุณต้องการ <span class="text-red-500">*</span></label>
+                        <label class="block text-sm font-medium mb-2 text-gray-900">9. บอกสเปคแอร์ติดผนังในฝันที่คุณต้องการ <span class="text-red-500">*</span></label>
                         <input type="text" name="dream_spec" required class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 focus:bg-white focus:border-carrier-blue focus:ring-2 focus:ring-blue-100 outline-none transition-all placeholder-gray-400" placeholder="เช่น สี, ฟังก์ชั่นพิเศษ">
                     </div>
 
-                    <!-- Question 9: Scale -->
+                    <!-- Question 10: Scale -->
                     <div>
-                        <label class="block text-sm font-medium mb-4 text-gray-900">9. คะแนนความพึงพอใจการจัดอบรมครั้งนี้ <span class="text-red-500">*</span></label>
+                        <label class="block text-sm font-medium mb-4 text-gray-900">10. คะแนนความพึงพอใจการจัดอบรมครั้งนี้ <span class="text-red-500">*</span></label>
                         <div class="bg-gray-50 rounded-xl p-4 flex flex-col items-center justify-center">
                             <div class="flex justify-between w-full max-w-sm mb-2 text-xs text-gray-500 font-medium uppercase tracking-wide">
                                 <span>ไม่พอใจ</span>
@@ -280,7 +397,7 @@
                     </div>
 
                     <div>
-                        <label class="block text-sm font-medium mb-2 text-gray-900">10. ข้อเสนอแนะสำหรับการจัดสัมมนา <span class="text-red-500">*</span></label>
+                        <label class="block text-sm font-medium mb-2 text-gray-900">11. ข้อเสนอแนะสำหรับการจัดสัมมนา <span class="text-red-500">*</span></label>
                         <textarea name="suggestion" required rows="3" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 focus:bg-white focus:border-carrier-blue focus:ring-2 focus:ring-blue-100 outline-none transition-all placeholder-gray-400" placeholder="แสดงความคิดเห็นของคุณ..."></textarea>
                     </div>
                 </div>
@@ -306,7 +423,7 @@
                     <svg class="w-10 h-10 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                 </div>
                 <h3 class="text-2xl font-bold text-gray-800 mb-2">บันทึกข้อมูลสำเร็จ</h3>
-                <p class="text-gray-600 mb-6">https://script.google.com/macros/s/AKfycbyMUwn3_E30AZcggf1dtcs9LnXTY6fdKOGr3UapnZsPTUVXDmtwM2fCOFLKcghtSlgN/exec</p>
+                <p class="text-gray-600 mb-6">ขอบคุณสำหรับความคิดเห็นของคุณ</p>
                 <button onclick="location.reload()" class="w-full bg-carrier-blue text-white py-3 rounded-xl font-medium hover:bg-blue-800 transition-colors">
                     ปิดหน้าต่าง
                 </button>
@@ -361,4 +478,3 @@
     </script>
 </body>
 </html>
-
