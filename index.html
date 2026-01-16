@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- แก้ไข Title เป็น 2026 -->
     <title>แบบสอบถามอบรมสินค้าใหม่ Carrier 2026</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -51,21 +50,20 @@
             backdrop-filter: blur(4px);
         }
         
-        /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #f1f1f1; }
         ::-webkit-scrollbar-thumb { background: #0055A4; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #003366; }
 
-        /* Radio Card Animation */
-        .radio-card:checked + div {
+        /* Radio & Checkbox Card Animation */
+        .input-card:checked + div {
             border-color: #0055A4;
             background-color: #f0f7ff;
             color: #0055A4;
             box-shadow: 0 4px 6px -1px rgba(0, 85, 164, 0.1), 0 2px 4px -1px rgba(0, 85, 164, 0.06);
             transform: translateY(-2px);
         }
-        .radio-card:checked + div .radio-circle {
+        .input-card:checked + div .indicator-circle {
             border-color: #0055A4;
             background-color: #0055A4;
             box-shadow: inset 0 0 0 3px white;
@@ -88,24 +86,16 @@
 
     <!-- Header Banner -->
     <div class="w-full bg-carrier-dark shadow-xl relative overflow-hidden h-64 md:h-80 group">
-        
-        <!-- *** พื้นที่วางโลโก้ (Logo Area) *** -->
         <div class="absolute top-0 left-0 w-full flex justify-center pt-8 z-20 animate-fade-in-up" style="animation-delay: 0.1s;">
             <img src="https://img5.pic.in.th/file/secure-sv1/carrier_logo_300.png" 
                  alt="Carrier Logo" 
                  class="h-16 md:h-24 w-auto object-contain drop-shadow-md hover:scale-105 transition-transform duration-300">
         </div>
-
-        <!-- Background Gradient -->
         <div class="absolute inset-0 bg-gradient-to-br from-[#001f3f] via-[#003366] to-[#0055A4]"></div>
-        
-        <!-- Overlay Gradient for text readability -->
         <div class="absolute inset-0 bg-gradient-to-t from-carrier-dark/90 via-transparent to-transparent"></div>
-
         <div class="absolute bottom-0 left-0 w-full p-6 md:p-10 text-white animate-fade-in-up">
             <div class="max-w-3xl mx-auto">
                 <span class="bg-white/20 backdrop-blur-sm text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-3 inline-block shadow-sm border border-white/30">Survey 2026</span>
-                <!-- แก้ไขหัวข้อ h1 -->
                 <h1 class="text-3xl md:text-5xl font-bold leading-tight drop-shadow-lg text-white mb-2">แบบสอบถามอบรมสินค้าใหม่ Carrier 2026</h1>
                 <p class="text-gray-100 text-base md:text-lg font-light drop-shadow-md opacity-90">ร่วมแสดงความคิดเห็นเพื่อพัฒนาสินค้าและบริการของแอร์แคเรียร์</p>
             </div>
@@ -113,7 +103,6 @@
     </div>
 
     <!-- Main Container -->
-    <!-- แก้ไข: เปลี่ยน -mt-10 เป็น mt-6 เพื่อไม่ให้ทับ Banner -->
     <div class="max-w-3xl mx-auto px-4 pb-20 mt-6 relative z-10 space-y-6">
 
         <form id="carrierForm" class="space-y-6">
@@ -126,14 +115,12 @@
                     </span>
                     ข้อมูลทั่วไป
                 </h2>
-                
                 <div class="space-y-6">
                     <div>
                         <label class="block text-base font-medium mb-2 text-gray-800">1. จังหวัดที่อยู่อาศัย <span class="text-red-500">*</span></label>
                         <div class="relative group">
                             <select name="province" id="provinceSelect" required class="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 pr-8 focus:bg-white focus:border-carrier-blue focus:ring-4 focus:ring-carrier-blue/10 outline-none transition-all appearance-none text-base text-gray-700 shadow-sm hover:border-carrier-blue/50 cursor-pointer">
                                 <option value="" disabled selected>กรุณาเลือกจังหวัด</option>
-                                <!-- JS Populated -->
                             </select>
                             <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-500 group-hover:text-carrier-blue transition-colors">
                                 <svg class="fill-current h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
@@ -153,18 +140,18 @@
                     <span class="bg-carrier-blue/10 p-2 rounded-lg mr-3">
                         <svg class="w-6 h-6 text-carrier-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
                     </span>
-                    ข้อมูลผลิตภัณฑ์
+                    ข้อมูลผลิตภัณฑ์และการขาย
                 </h2>
 
                 <!-- Q3 -->
                 <div class="mb-8">
                     <label class="block text-base font-medium mb-3 text-gray-800">3. ท่านแนะนำแอร์ให้ลูกค้าด้วยเหตุผลใดเป็นหลัก <span class="text-red-500">*</span></label>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                        <label class="cursor-pointer group relative"><input type="radio" name="reason" value="ราคาถูกที่สุด" required class="radio-card hidden"><div class="border border-gray-200 bg-white rounded-xl p-4 flex items-center hover:border-carrier-blue/50 transition-all hover-lift"><div class="radio-circle w-5 h-5 rounded-full border-2 border-gray-300 mr-3 flex-shrink-0 transition-colors"></div><span class="text-base">ราคาถูกที่สุด</span></div></label>
-                        <label class="cursor-pointer group relative"><input type="radio" name="reason" value="ประหยัดไฟที่สุด" class="radio-card hidden"><div class="border border-gray-200 bg-white rounded-xl p-4 flex items-center hover:border-carrier-blue/50 transition-all hover-lift"><div class="radio-circle w-5 h-5 rounded-full border-2 border-gray-300 mr-3 flex-shrink-0 transition-colors"></div><span class="text-base">ประหยัดไฟที่สุด</span></div></label>
-                        <label class="cursor-pointer group relative"><input type="radio" name="reason" value="รับประกันนานที่สุด" class="radio-card hidden"><div class="border border-gray-200 bg-white rounded-xl p-4 flex items-center hover:border-carrier-blue/50 transition-all hover-lift"><div class="radio-circle w-5 h-5 rounded-full border-2 border-gray-300 mr-3 flex-shrink-0 transition-colors"></div><span class="text-base">รับประกันนานที่สุด</span></div></label>
-                        <label class="cursor-pointer group relative"><input type="radio" name="reason" value="มีอายุการใช้งานนานที่สุด(พังยาก)" class="radio-card hidden"><div class="border border-gray-200 bg-white rounded-xl p-4 flex items-center hover:border-carrier-blue/50 transition-all hover-lift"><div class="radio-circle w-5 h-5 rounded-full border-2 border-gray-300 mr-3 flex-shrink-0 transition-colors"></div><span class="text-base">ทนทาน ใช้งานนาน (พังยาก)</span></div></label>
-                        <label class="cursor-pointer group relative md:col-span-2"><input type="radio" name="reason" value="ตามโปรโมชันบริษัทฯ ที่มี" class="radio-card hidden"><div class="border border-gray-200 bg-white rounded-xl p-4 flex items-center hover:border-carrier-blue/50 transition-all hover-lift"><div class="radio-circle w-5 h-5 rounded-full border-2 border-gray-300 mr-3 flex-shrink-0 transition-colors"></div><span class="text-base">ตามโปรโมชันบริษัทฯ ที่มี</span></div></label>
+                        <label class="cursor-pointer group relative"><input type="radio" name="reason" value="ราคาถูกที่สุด" required class="input-card hidden"><div class="border border-gray-200 bg-white rounded-xl p-4 flex items-center hover:border-carrier-blue/50 transition-all hover-lift"><div class="indicator-circle w-5 h-5 rounded-full border-2 border-gray-300 mr-3 flex-shrink-0 transition-colors"></div><span class="text-base">ราคาถูกที่สุด</span></div></label>
+                        <label class="cursor-pointer group relative"><input type="radio" name="reason" value="ประหยัดไฟที่สุด" class="input-card hidden"><div class="border border-gray-200 bg-white rounded-xl p-4 flex items-center hover:border-carrier-blue/50 transition-all hover-lift"><div class="indicator-circle w-5 h-5 rounded-full border-2 border-gray-300 mr-3 flex-shrink-0 transition-colors"></div><span class="text-base">ประหยัดไฟที่สุด</span></div></label>
+                        <label class="cursor-pointer group relative"><input type="radio" name="reason" value="รับประกันนานที่สุด" class="input-card hidden"><div class="border border-gray-200 bg-white rounded-xl p-4 flex items-center hover:border-carrier-blue/50 transition-all hover-lift"><div class="indicator-circle w-5 h-5 rounded-full border-2 border-gray-300 mr-3 flex-shrink-0 transition-colors"></div><span class="text-base">รับประกันนานที่สุด</span></div></label>
+                        <label class="cursor-pointer group relative"><input type="radio" name="reason" value="ทนทาน ใช้งานนาน (พังยาก)" class="input-card hidden"><div class="border border-gray-200 bg-white rounded-xl p-4 flex items-center hover:border-carrier-blue/50 transition-all hover-lift"><div class="indicator-circle w-5 h-5 rounded-full border-2 border-gray-300 mr-3 flex-shrink-0 transition-colors"></div><span class="text-base">ทนทาน ใช้งานนาน (พังยาก)</span></div></label>
+                        <label class="cursor-pointer group relative md:col-span-2"><input type="radio" name="reason" value="ตามโปรโมชันบริษัทฯ ที่มี" class="input-card hidden"><div class="border border-gray-200 bg-white rounded-xl p-4 flex items-center hover:border-carrier-blue/50 transition-all hover-lift"><div class="indicator-circle w-5 h-5 rounded-full border-2 border-gray-300 mr-3 flex-shrink-0 transition-colors"></div><span class="text-base">ตามโปรโมชันบริษัทฯ ที่มี</span></div></label>
                     </div>
                 </div>
 
@@ -188,17 +175,38 @@
 
                 <!-- Q5 -->
                 <div class="mb-8">
-                    <label class="block text-base font-medium mb-3 text-gray-800">5. ท่านขายสินค้าระบบใดมากที่สุดในปี 2568 <span class="text-red-500">*</span></label>
+                    <label class="block text-base font-medium mb-3 text-gray-800">5. ส่วนใหญ่เวลาปิดงานแอร์ ลูกค้าเลือกแบรนด์เองหรือช่างเป็นคนเลือกให้? <span class="text-red-500">*</span></label>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <label class="cursor-pointer group relative">
+                            <input type="radio" name="decision_maker" value="ช่างเลือกให้" required class="input-card hidden">
+                            <div class="border border-gray-200 bg-white rounded-xl p-4 flex items-center hover:border-carrier-blue/50 transition-all hover-lift">
+                                <div class="indicator-circle w-5 h-5 rounded-full border-2 border-gray-300 mr-3 flex-shrink-0 transition-colors"></div>
+                                <span class="text-base">ช่างเลือกให้</span>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer group relative">
+                            <input type="radio" name="decision_maker" value="ลูกค้าเลือกเอง" class="input-card hidden">
+                            <div class="border border-gray-200 bg-white rounded-xl p-4 flex items-center hover:border-carrier-blue/50 transition-all hover-lift">
+                                <div class="indicator-circle w-5 h-5 rounded-full border-2 border-gray-300 mr-3 flex-shrink-0 transition-colors"></div>
+                                <span class="text-base">ลูกค้าเลือกเอง</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Q6 -->
+                <div class="mb-8">
+                    <label class="block text-base font-medium mb-3 text-gray-800">6. ท่านขายสินค้าระบบใดมากที่สุดในปี 2568 <span class="text-red-500">*</span></label>
                     <div class="grid grid-cols-2 gap-4">
                         <label class="cursor-pointer group relative">
-                            <input type="radio" name="system_sold" value="Fixed-Speed" required class="radio-card hidden">
+                            <input type="radio" name="system_sold" value="Fixed-Speed" required class="input-card hidden">
                             <div class="border border-gray-200 bg-white rounded-xl p-5 flex flex-col items-center text-center h-28 justify-center hover:border-carrier-blue/50 transition-all hover-lift">
                                 <span class="font-semibold text-lg text-gray-800 block mb-1">Fixed-Speed</span>
                                 <span class="text-sm text-gray-500">ระบบธรรมดา</span>
                             </div>
                         </label>
                         <label class="cursor-pointer group relative">
-                            <input type="radio" name="system_sold" value="Inverter" class="radio-card hidden">
+                            <input type="radio" name="system_sold" value="Inverter" class="input-card hidden">
                             <div class="border border-gray-200 bg-white rounded-xl p-5 flex flex-col items-center text-center h-28 justify-center hover:border-carrier-blue/50 transition-all hover-lift">
                                 <span class="font-semibold text-lg text-gray-800 block mb-1">Inverter</span>
                                 <span class="text-sm text-gray-500">ระบบอินเวอร์เตอร์</span>
@@ -207,36 +215,70 @@
                     </div>
                 </div>
 
-                <!-- Q6 -->
-                <div class="mb-8">
-                    <label class="block text-base font-medium mb-3 text-gray-800">6. แอร์ติดผนังรุ่นใดที่ท่านขายมากที่สุดในปีที่ผ่านมา <span class="text-red-500">*</span></label>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <label class="cursor-pointer group relative"><input type="radio" name="model_sold" value="Copper 7" required class="radio-card hidden"><div class="border border-gray-200 bg-white rounded-xl p-4 flex items-center hover:border-carrier-blue/50 transition-all hover-lift"><div class="radio-circle w-5 h-5 rounded-full border-2 border-gray-300 mr-3 flex-shrink-0"></div><span class="text-base">Copper 7 (TSAA)</span></div></label>
-                        <label class="cursor-pointer group relative"><input type="radio" name="model_sold" value="Copper 10" class="radio-card hidden"><div class="border border-gray-200 bg-white rounded-xl p-4 flex items-center hover:border-carrier-blue/50 transition-all hover-lift"><div class="radio-circle w-5 h-5 rounded-full border-2 border-gray-300 mr-3 flex-shrink-0"></div><span class="text-base">Copper 10 (TVDA)</span></div></label>
-                        <label class="cursor-pointer group relative"><input type="radio" name="model_sold" value="Copper 11" class="radio-card hidden"><div class="border border-gray-200 bg-white rounded-xl p-4 flex items-center hover:border-carrier-blue/50 transition-all hover-lift"><div class="radio-circle w-5 h-5 rounded-full border-2 border-gray-300 mr-3 flex-shrink-0"></div><span class="text-base">Copper 11 (TVEA)</span></div></label>
-                                                <label class="cursor-pointer group relative"><input type="radio" name="model_sold" value="X-inverter Plus" class="radio-card hidden"><div class="border border-gray-200 bg-white rounded-xl p-4 flex items-center hover:border-carrier-blue/50 transition-all hover-lift"><div class="radio-circle w-5 h-5 rounded-full border-2 border-gray-300 mr-3 flex-shrink-0"></div><span class="text-base">X-inverter Plus (TVAB)</span></div></label>
-
-                        <label class="cursor-pointer group relative"><input type="radio" name="model_sold" value="Color Smart" class="radio-card hidden"><div class="border border-gray-200 bg-white rounded-xl p-4 flex items-center hover:border-carrier-blue/50 transition-all hover-lift"><div class="radio-circle w-5 h-5 rounded-full border-2 border-gray-300 mr-3 flex-shrink-0"></div><span class="text-base">Color Smart (TVCA)</span></div></label>
-                        <label class="cursor-pointer group relative"><input type="radio" name="model_sold" value="Discovery" class="radio-card hidden"><div class="border border-gray-200 bg-white rounded-xl p-4 flex items-center hover:border-carrier-blue/50 transition-all hover-lift"><div class="radio-circle w-5 h-5 rounded-full border-2 border-gray-300 mr-3 flex-shrink-0"></div><span class="text-base">Discovery (BGF, TGF)</span></div></label>
-                        <label class="cursor-pointer group relative"><input type="radio" name="model_sold" value="X-Power Element" class="radio-card hidden"><div class="border border-gray-200 bg-white rounded-xl p-4 flex items-center hover:border-carrier-blue/50 transition-all hover-lift"><div class="radio-circle w-5 h-5 rounded-full border-2 border-gray-300 mr-3 flex-shrink-0"></div><span class="text-base">X-Power Element (TGEV)</span></div></label>
-                        <label class="cursor-pointer group relative"><input type="radio" name="model_sold" value="X-Power Elite" class="radio-card hidden"><div class="border border-gray-200 bg-white rounded-xl p-4 flex items-center hover:border-carrier-blue/50 transition-all hover-lift"><div class="radio-circle w-5 h-5 rounded-full border-2 border-gray-300 mr-3 flex-shrink-0"></div><span class="text-base">X-Power Elite (BGV, TGV)</span></div></label>
-                    </div>
-                </div>
-
                 <!-- Q7 -->
                 <div class="mb-8">
-                    <label class="block text-base font-medium mb-3 text-gray-800">7. ท่านคิดว่าสินค้ารุ่นใหม่ของแคเรียร์ รุ่นใดมีความน่าสนใจที่สุด <span class="text-red-500">*</span></label>
+                    <label class="block text-base font-medium mb-3 text-gray-800">7. แอร์ติดผนังรุ่นใดที่ท่านขายมากที่สุดในปีที่ผ่านมา <span class="text-red-500">*</span></label>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <label class="cursor-pointer group relative"><input type="radio" name="interesting_model" value="Tech S" required class="radio-card hidden"><div class="border border-gray-200 bg-white rounded-xl p-4 flex items-center hover:border-carrier-blue/50 transition-all hover-lift"><div class="radio-circle w-5 h-5 rounded-full border-2 border-gray-300 mr-3 flex-shrink-0"></div><span class="text-base">Tech S (NSAA)</span></div></label>
-                        <label class="cursor-pointer group relative"><input type="radio" name="interesting_model" value="Tech V" class="radio-card hidden"><div class="border border-gray-200 bg-white rounded-xl p-4 flex items-center hover:border-carrier-blue/50 transition-all hover-lift"><div class="radio-circle w-5 h-5 rounded-full border-2 border-gray-300 mr-3 flex-shrink-0"></div><span class="text-base">Tech V (NVAA)</span></div></label>
-                        <label class="cursor-pointer group relative"><input type="radio" name="interesting_model" value="Copper-Seal" class="radio-card hidden"><div class="border border-gray-200 bg-white rounded-xl p-4 flex items-center hover:border-carrier-blue/50 transition-all hover-lift"><div class="radio-circle w-5 h-5 rounded-full border-2 border-gray-300 mr-3 flex-shrink-0"></div><span class="text-base">Copper-Seal (TVDB)</span></div></label>
-                        <label class="cursor-pointer group relative"><input type="radio" name="interesting_model" value="Copper-Ion" class="radio-card hidden"><div class="border border-gray-200 bg-white rounded-xl p-4 flex items-center hover:border-carrier-blue/50 transition-all hover-lift"><div class="radio-circle w-5 h-5 rounded-full border-2 border-gray-300 mr-3 flex-shrink-0"></div><span class="text-base">Copper-Ion (TVEB)</span></div></label>
+                        <label class="cursor-pointer group relative"><input type="radio" name="model_sold" value="Copper 7" required class="input-card hidden"><div class="border border-gray-200 bg-white rounded-xl p-4 flex items-center hover:border-carrier-blue/50 transition-all hover-lift"><div class="indicator-circle w-5 h-5 rounded-full border-2 border-gray-300 mr-3 flex-shrink-0"></div><span class="text-base">Copper 7 (TSAA)</span></div></label>
+                        <label class="cursor-pointer group relative"><input type="radio" name="model_sold" value="Copper 10" class="input-card hidden"><div class="border border-gray-200 bg-white rounded-xl p-4 flex items-center hover:border-carrier-blue/50 transition-all hover-lift"><div class="indicator-circle w-5 h-5 rounded-full border-2 border-gray-300 mr-3 flex-shrink-0"></div><span class="text-base">Copper 10 (TVDA)</span></div></label>
+                        <label class="cursor-pointer group relative"><input type="radio" name="model_sold" value="Copper 11" class="input-card hidden"><div class="border border-gray-200 bg-white rounded-xl p-4 flex items-center hover:border-carrier-blue/50 transition-all hover-lift"><div class="indicator-circle w-5 h-5 rounded-full border-2 border-gray-300 mr-3 flex-shrink-0"></div><span class="text-base">Copper 11 (TVEA)</span></div></label>
+                        <label class="cursor-pointer group relative"><input type="radio" name="model_sold" value="X-inverter Plus" class="input-card hidden"><div class="border border-gray-200 bg-white rounded-xl p-4 flex items-center hover:border-carrier-blue/50 transition-all hover-lift"><div class="indicator-circle w-5 h-5 rounded-full border-2 border-gray-300 mr-3 flex-shrink-0"></div><span class="text-base">X-inverter Plus (TVAB)</span></div></label>
+                        <label class="cursor-pointer group relative"><input type="radio" name="model_sold" value="Color Smart" class="input-card hidden"><div class="border border-gray-200 bg-white rounded-xl p-4 flex items-center hover:border-carrier-blue/50 transition-all hover-lift"><div class="indicator-circle w-5 h-5 rounded-full border-2 border-gray-300 mr-3 flex-shrink-0"></div><span class="text-base">Color Smart (TVCA)</span></div></label>
+                        <label class="cursor-pointer group relative"><input type="radio" name="model_sold" value="Discovery" class="input-card hidden"><div class="border border-gray-200 bg-white rounded-xl p-4 flex items-center hover:border-carrier-blue/50 transition-all hover-lift"><div class="indicator-circle w-5 h-5 rounded-full border-2 border-gray-300 mr-3 flex-shrink-0"></div><span class="text-base">Discovery (BGF, TGF)</span></div></label>
+                        <label class="cursor-pointer group relative"><input type="radio" name="model_sold" value="X-Power Element" class="input-card hidden"><div class="border border-gray-200 bg-white rounded-xl p-4 flex items-center hover:border-carrier-blue/50 transition-all hover-lift"><div class="indicator-circle w-5 h-5 rounded-full border-2 border-gray-300 mr-3 flex-shrink-0"></div><span class="text-base">X-Power Element (TGEV)</span></div></label>
+                        <label class="cursor-pointer group relative"><input type="radio" name="model_sold" value="X-Power Elite" class="input-card hidden"><div class="border border-gray-200 bg-white rounded-xl p-4 flex items-center hover:border-carrier-blue/50 transition-all hover-lift"><div class="indicator-circle w-5 h-5 rounded-full border-2 border-gray-300 mr-3 flex-shrink-0"></div><span class="text-base">X-Power Elite (BGV, TGV)</span></div></label>
                     </div>
                 </div>
 
                 <!-- Q8 -->
+                <div class="mb-8">
+                    <label class="block text-base font-medium mb-3 text-gray-800">8. ปัจจัยใดจาก “แบรนด์แอร์แคเรียร์” ที่ช่วยให้ท่านปิดงานกับลูกค้าได้ง่ายขึ้นมากที่สุด? <span class="text-sm text-gray-500 font-normal">(เลือกตอบได้มากกว่า 1 ข้อ)</span> <span class="text-red-500">*</span></label>
+                    <div class="grid grid-cols-1 gap-3">
+                        <label class="cursor-pointer group relative">
+                            <input type="checkbox" name="closing_factor" value="สินค้ามีคุณภาพ ความทนทาน ฟังก์ชันที่ตอบโจทย์" class="input-card hidden">
+                            <div class="border border-gray-200 bg-white rounded-xl p-4 flex items-center hover:border-carrier-blue/50 transition-all hover-lift">
+                                <div class="indicator-circle w-5 h-5 rounded-md border-2 border-gray-300 mr-3 flex-shrink-0 transition-colors"></div>
+                                <span class="text-base">สินค้ามีคุณภาพ ความทนทาน ฟังก์ชันที่ตอบโจทย์การใช้งาน</span>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer group relative">
+                            <input type="checkbox" name="closing_factor" value="ราคา โปรโมชัน หรือเงื่อนไขพิเศษ" class="input-card hidden">
+                            <div class="border border-gray-200 bg-white rounded-xl p-4 flex items-center hover:border-carrier-blue/50 transition-all hover-lift">
+                                <div class="indicator-circle w-5 h-5 rounded-md border-2 border-gray-300 mr-3 flex-shrink-0 transition-colors"></div>
+                                <span class="text-base">ราคา โปรโมชัน หรือเงื่อนไขพิเศษที่ช่วยให้ลูกค้าตัดสินใจง่ายขึ้น</span>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer group relative">
+                            <input type="checkbox" name="closing_factor" value="สื่อโฆษณา/ออนไลน์ที่สร้างความมั่นใจ" class="input-card hidden">
+                            <div class="border border-gray-200 bg-white rounded-xl p-4 flex items-center hover:border-carrier-blue/50 transition-all hover-lift">
+                                <div class="indicator-circle w-5 h-5 rounded-md border-2 border-gray-300 mr-3 flex-shrink-0 transition-colors"></div>
+                                <span class="text-base">โบรชัวร์ /โฆษณา หรือสื่อออนไลน์ที่ทำให้ลูกค้ารู้จักและมั่นใจในแบรนด์</span>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer group relative">
+                            <input type="checkbox" name="closing_factor" value="ความสะดวกในการหาซื้อและสต็อกสินค้า" class="input-card hidden">
+                            <div class="border border-gray-200 bg-white rounded-xl p-4 flex items-center hover:border-carrier-blue/50 transition-all hover-lift">
+                                <div class="indicator-circle w-5 h-5 rounded-md border-2 border-gray-300 mr-3 flex-shrink-0 transition-colors"></div>
+                                <span class="text-base">ความสะดวกในการหาซื้อสินค้า สต็อกพร้อม หรือร้านค้าที่เข้าถึงง่าย</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Q9 -->
+                <div class="mb-8">
+                    <label class="block text-base font-medium mb-3 text-gray-800">9. ท่านคิดว่าสินค้ารุ่นใหม่ของแคเรียร์ รุ่นใดมีความน่าสนใจที่สุด <span class="text-red-500">*</span></label>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <label class="cursor-pointer group relative"><input type="radio" name="interesting_model" value="Tech S" required class="input-card hidden"><div class="border border-gray-200 bg-white rounded-xl p-4 flex items-center hover:border-carrier-blue/50 transition-all hover-lift"><div class="indicator-circle w-5 h-5 rounded-full border-2 border-gray-300 mr-3 flex-shrink-0"></div><span class="text-base">Tech S (NSAA)</span></div></label>
+                        <label class="cursor-pointer group relative"><input type="radio" name="interesting_model" value="Tech V" class="input-card hidden"><div class="border border-gray-200 bg-white rounded-xl p-4 flex items-center hover:border-carrier-blue/50 transition-all hover-lift"><div class="indicator-circle w-5 h-5 rounded-full border-2 border-gray-300 mr-3 flex-shrink-0"></div><span class="text-base">Tech V (NVAA)</span></div></label>
+                        <label class="cursor-pointer group relative"><input type="radio" name="interesting_model" value="Copper-Seal" class="input-card hidden"><div class="border border-gray-200 bg-white rounded-xl p-4 flex items-center hover:border-carrier-blue/50 transition-all hover-lift"><div class="indicator-circle w-5 h-5 rounded-full border-2 border-gray-300 mr-3 flex-shrink-0"></div><span class="text-base">Copper-Seal (TVDB)</span></div></label>
+                        <label class="cursor-pointer group relative"><input type="radio" name="interesting_model" value="Copper-Ion" class="input-card hidden"><div class="border border-gray-200 bg-white rounded-xl p-4 flex items-center hover:border-carrier-blue/50 transition-all hover-lift"><div class="indicator-circle w-5 h-5 rounded-full border-2 border-gray-300 mr-3 flex-shrink-0"></div><span class="text-base">Copper-Ion (TVEB)</span></div></label>
+                    </div>
+                </div>
+
+                <!-- Q10 -->
                 <div class="mb-4">
-                    <label class="block text-base font-medium mb-3 text-gray-800">8. บอกสเปคแอร์ติดผนังในฝันที่คุณต้องการ <span class="text-red-500">*</span></label>
+                    <label class="block text-base font-medium mb-3 text-gray-800">10. บอกสเปคแอร์ติดผนังในฝันที่คุณต้องการ <span class="text-red-500">*</span></label>
                     <input type="text" name="dream_spec" required class="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 focus:bg-white focus:border-carrier-blue focus:ring-4 focus:ring-carrier-blue/10 outline-none transition-all placeholder-gray-400 text-base shadow-sm">
                 </div>
             </div>
@@ -250,9 +292,9 @@
                     บริการและกิจกรรม
                 </h2>
 
-                <!-- Q9 -->
+                <!-- Q11 -->
                 <div class="mb-8">
-                    <label class="block text-base font-medium mb-3 text-gray-800">9. หากให้คะแนนการบริการหลังการขายแคเรียร์ 1454 ท่านคิดว่าความเหมาะสมอยู่ที่เท่าไร <span class="text-red-500">*</span></label>
+                    <label class="block text-base font-medium mb-3 text-gray-800">11. หากให้คะแนนการบริการหลังการขายแคเรียร์ 1454 ท่านคิดว่าความเหมาะสมอยู่ที่เท่าไร <span class="text-red-500">*</span></label>
                     <div class="bg-gray-50/80 rounded-xl p-6 flex flex-col items-center justify-center border border-gray-100">
                         <div class="flex justify-between w-full max-w-sm mb-3 text-sm text-gray-500 font-medium">
                             <span>ปรับปรุง</span>
@@ -268,9 +310,9 @@
                     </div>
                 </div>
 
-                <!-- Q10 -->
+                <!-- Q12 -->
                 <div class="mb-8">
-                    <label class="block text-base font-medium mb-3 text-gray-800">10. ปัจจัยใดที่ทำให้ท่านไม่สะดวกในการดำเนินการสะสมคะแนน? <span class="text-sm text-gray-500 font-normal">(เลือกข้อที่ตรงที่สุด)</span> <span class="text-red-500">*</span></label>
+                    <label class="block text-base font-medium mb-3 text-gray-800">12. ปัจจัยใดที่ทำให้ท่านไม่สะดวกในการดำเนินการสะสมคะแนน? <span class="text-sm text-gray-500 font-normal">(เลือกข้อที่ตรงที่สุด)</span> <span class="text-red-500">*</span></label>
                     <div class="space-y-3">
                         <label class="flex items-center p-4 rounded-xl border border-gray-200 bg-white hover:bg-blue-50 cursor-pointer transition-all hover-lift"><input type="radio" name="inconvenience_factor" value="การบริหารจัดการสิทธิ์" required class="form-radio h-5 w-5 text-[#0055A4]"><span class="ml-3 text-base">การบริหารจัดการสิทธิ์ (ให้คนอื่นทำแทน)</span></label>
                         <label class="flex items-center p-4 rounded-xl border border-gray-200 bg-white hover:bg-blue-50 cursor-pointer transition-all hover-lift"><input type="radio" name="inconvenience_factor" value="ข้อจำกัดด้านเวลา" class="form-radio h-5 w-5 text-[#0055A4]"><span class="ml-3 text-base">ข้อจำกัดด้านเวลา (งานยุ่ง)</span></label>
@@ -285,9 +327,9 @@
                     </div>
                 </div>
 
-                <!-- Q11 -->
+                <!-- Q13 -->
                 <div>
-                    <label class="block text-base font-medium mb-2 text-gray-800">11. อยากให้แคเรียร์มีกิจกรรมใดเพื่อส่งเสริมการขาย <span class="text-red-500">*</span></label>
+                    <label class="block text-base font-medium mb-2 text-gray-800">13. อยากให้แคเรียร์มีกิจกรรมใดเพื่อส่งเสริมการขาย <span class="text-red-500">*</span></label>
                     <input type="text" name="activity" required class="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 focus:bg-white focus:border-carrier-blue focus:ring-4 focus:ring-carrier-blue/10 outline-none transition-all placeholder-gray-400 text-base shadow-sm">
                 </div>
             </div>
@@ -301,42 +343,27 @@
                     ความพึงพอใจและข้อเสนอแนะ
                 </h2>
                 <div class="grid grid-cols-1 gap-6">
-                    <!-- Q12 -->
+                    <!-- Q14 -->
                     <div>
-                        <label class="block text-base font-medium mb-3 text-gray-800">12. คะแนนความพึงพอใจการจัดอบรมครั้งนี้ <span class="text-red-500">*</span></label>
+                        <label class="block text-base font-medium mb-3 text-gray-800">14. คะแนนความพึงพอใจการจัดอบรมครั้งนี้ <span class="text-red-500">*</span></label>
                         <div class="bg-gray-50/80 rounded-xl p-6 flex flex-col items-center justify-center border border-gray-100">
                             <div class="flex justify-between w-full max-w-sm mb-3 text-sm text-gray-500 font-medium">
                                 <span>น้อย</span>
                                 <span>มาก</span>
                             </div>
                             <div class="flex justify-between w-full max-w-sm">
-                                <label class="cursor-pointer group flex flex-col items-center">
-                                    <input type="radio" name="satisfaction" value="1" required class="peer hidden">
-                                    <div class="w-10 h-10 rounded-full border-2 border-gray-300 bg-white flex items-center justify-center text-gray-500 font-medium peer-checked:border-carrier-blue peer-checked:bg-carrier-blue peer-checked:text-white transition-all shadow-sm hover:scale-110 hover:border-carrier-blue/50">1</div>
-                                </label>
-                                <label class="cursor-pointer group flex flex-col items-center">
-                                    <input type="radio" name="satisfaction" value="2" class="peer hidden">
-                                    <div class="w-10 h-10 rounded-full border-2 border-gray-300 bg-white flex items-center justify-center text-gray-500 font-medium peer-checked:border-carrier-blue peer-checked:bg-carrier-blue peer-checked:text-white transition-all shadow-sm hover:scale-110 hover:border-carrier-blue/50">2</div>
-                                </label>
-                                <label class="cursor-pointer group flex flex-col items-center">
-                                    <input type="radio" name="satisfaction" value="3" class="peer hidden">
-                                    <div class="w-10 h-10 rounded-full border-2 border-gray-300 bg-white flex items-center justify-center text-gray-500 font-medium peer-checked:border-carrier-blue peer-checked:bg-carrier-blue peer-checked:text-white transition-all shadow-sm hover:scale-110 hover:border-carrier-blue/50">3</div>
-                                </label>
-                                <label class="cursor-pointer group flex flex-col items-center">
-                                    <input type="radio" name="satisfaction" value="4" class="peer hidden">
-                                    <div class="w-10 h-10 rounded-full border-2 border-gray-300 bg-white flex items-center justify-center text-gray-500 font-medium peer-checked:border-carrier-blue peer-checked:bg-carrier-blue peer-checked:text-white transition-all shadow-sm hover:scale-110 hover:border-carrier-blue/50">4</div>
-                                </label>
-                                <label class="cursor-pointer group flex flex-col items-center">
-                                    <input type="radio" name="satisfaction" value="5" class="peer hidden">
-                                    <div class="w-10 h-10 rounded-full border-2 border-gray-300 bg-white flex items-center justify-center text-gray-500 font-medium peer-checked:border-carrier-blue peer-checked:bg-carrier-blue peer-checked:text-white transition-all shadow-sm hover:scale-110 hover:border-carrier-blue/50">5</div>
-                                </label>
+                                <label class="cursor-pointer group flex flex-col items-center"><input type="radio" name="satisfaction" value="1" required class="peer hidden"><div class="w-10 h-10 rounded-full border-2 border-gray-300 bg-white flex items-center justify-center text-gray-500 font-medium peer-checked:border-carrier-blue peer-checked:bg-carrier-blue peer-checked:text-white transition-all shadow-sm hover:scale-110 hover:border-carrier-blue/50">1</div></label>
+                                <label class="cursor-pointer group flex flex-col items-center"><input type="radio" name="satisfaction" value="2" class="peer hidden"><div class="w-10 h-10 rounded-full border-2 border-gray-300 bg-white flex items-center justify-center text-gray-500 font-medium peer-checked:border-carrier-blue peer-checked:bg-carrier-blue peer-checked:text-white transition-all shadow-sm hover:scale-110 hover:border-carrier-blue/50">2</div></label>
+                                <label class="cursor-pointer group flex flex-col items-center"><input type="radio" name="satisfaction" value="3" class="peer hidden"><div class="w-10 h-10 rounded-full border-2 border-gray-300 bg-white flex items-center justify-center text-gray-500 font-medium peer-checked:border-carrier-blue peer-checked:bg-carrier-blue peer-checked:text-white transition-all shadow-sm hover:scale-110 hover:border-carrier-blue/50">3</div></label>
+                                <label class="cursor-pointer group flex flex-col items-center"><input type="radio" name="satisfaction" value="4" class="peer hidden"><div class="w-10 h-10 rounded-full border-2 border-gray-300 bg-white flex items-center justify-center text-gray-500 font-medium peer-checked:border-carrier-blue peer-checked:bg-carrier-blue peer-checked:text-white transition-all shadow-sm hover:scale-110 hover:border-carrier-blue/50">4</div></label>
+                                <label class="cursor-pointer group flex flex-col items-center"><input type="radio" name="satisfaction" value="5" class="peer hidden"><div class="w-10 h-10 rounded-full border-2 border-gray-300 bg-white flex items-center justify-center text-gray-500 font-medium peer-checked:border-carrier-blue peer-checked:bg-carrier-blue peer-checked:text-white transition-all shadow-sm hover:scale-110 hover:border-carrier-blue/50">5</div></label>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Q13 -->
+                    <!-- Q15 -->
                     <div>
-                        <label class="block text-base font-medium mb-2 text-gray-800">13. ข้อเสนอแนะเพิ่มเติมสำหรับการจัดสัมมนา <span class="text-red-500">*</span></label>
+                        <label class="block text-base font-medium mb-2 text-gray-800">15. ข้อเสนอแนะเพิ่มเติมสำหรับการจัดสัมมนา <span class="text-red-500">*</span></label>
                         <textarea name="suggestion" required rows="3" class="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 focus:bg-white focus:border-carrier-blue focus:ring-4 focus:ring-carrier-blue/10 outline-none transition-all placeholder-gray-400 text-base shadow-sm"></textarea>
                     </div>
                 </div>
@@ -381,8 +408,8 @@
             provinceSelect.appendChild(option);
         });
 
-        // *** IMPORTANT: Replace with your actual Script URL ***
-        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbykIvrlO2d_F55Y5d0odwp2FkNLOhFhclxVdyG-MzCexGm6B4kV9vjMOI2K5V5loS0d/exec'; 
+        // Script URL
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx0ZWLMWDMuxaBpNg4o1NNiYzxekVGeGLHus_vyCM0CrL7q9H4eXDLCHHuz9PSnYnX_/exec'; 
 
         const form = document.getElementById('carrierForm');
         const submitBtn = document.getElementById('submitBtn');
@@ -391,9 +418,14 @@
 
         form.addEventListener('submit', e => {
             e.preventDefault();
-            if(SCRIPT_URL === 'YOUR_GOOGLE_SCRIPT_URL_HERE') {
-                alert('กรุณาใส่ URL ของ Google Apps Script ก่อนใช้งาน'); return;
+            
+            // Validate Checkbox for Q8 (At least one selected)
+            const checkboxes = form.querySelectorAll('input[name="closing_factor"]:checked');
+            if(checkboxes.length === 0) {
+                alert('กรุณาเลือกปัจจัยที่ช่วยปิดงานอย่างน้อย 1 ข้อ');
+                return;
             }
+
             submitBtn.disabled = true;
             submitBtn.innerHTML = 'กำลังบันทึก...';
             loader.style.display = 'block';
@@ -406,6 +438,11 @@
             if(otherRadio && otherRadio.checked && otherInput.value.trim() !== "") {
                formData.set('inconvenience_factor', "อื่นๆ: " + otherInput.value.trim());
             }
+
+            // Handle Checkboxes (Q8) - join with comma
+            const closingFactors = [];
+            checkboxes.forEach(cb => closingFactors.push(cb.value));
+            formData.set('closing_factor', closingFactors.join(', '));
 
             fetch(SCRIPT_URL, { method: 'POST', body: formData, mode: 'no-cors' })
             .then(() => {
@@ -423,5 +460,3 @@
     </script>
 </body>
 </html>
-
-
